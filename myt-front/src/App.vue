@@ -1,26 +1,123 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template> 
+    <!-- top -->
+    <div class="gap">
+      <div class="icon-search">
+        <svg t="1666259603147" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6695" width="48" height="48" data-spm-anchor-id="a313x.7781069.0.i16"><path d="M953.6 795.733333l-145.066667-192c53.333333-44.8 89.6-113.066667 89.6-187.733333C896 279.466667 787.2 170.666667 650.666667 170.666667 516.266667 170.666667 405.333333 279.466667 405.333333 416S516.266667 661.333333 650.666667 661.333333c44.8 0 85.333333-12.8 121.6-32v2.133334l145.066666 192c4.266667 6.4 10.666667 8.533333 17.066667 8.533333 4.266667 0 8.533333-2.133333 12.8-4.266667 10.666667-8.533333 12.8-23.466667 6.4-32zM448 416c0-110.933333 91.733333-202.666667 202.666667-202.666667s202.666667 91.733333 202.666666 202.666667-91.733333 202.666667-202.666666 202.666667-202.666667-91.733333-202.666667-202.666667zM128 277.333333h192c12.8 0 21.333333-8.533333 21.333333-21.333333s-8.533333-21.333333-21.333333-21.333333H128c-12.8 0-21.333333 8.533333-21.333333 21.333333s8.533333 21.333333 21.333333 21.333333zM128 490.666667c-12.8 0-21.333333 8.533333-21.333333 21.333333s8.533333 21.333333 21.333333 21.333333h128c12.8 0 21.333333-8.533333 21.333333-21.333333s-8.533333-21.333333-21.333333-21.333333H128zM467.2 701.866667h-341.333333c-12.8 0-21.333333 8.533333-21.333334 21.333333s8.533333 21.333333 21.333334 21.333333h341.333333c12.8 0 21.333333-8.533333 21.333333-21.333333s-8.533333-21.333333-21.333333-21.333333z" p-id="6696" fill="#ffffff" data-spm-anchor-id="a313x.7781069.0.i17" class="selected"></path></svg>
+      </div>
+      <div>
+        <input id='search' v-model="input1" placeholder="搜索逝者名字">
+      </div>
+      <div class="icon-rightarrow" @click="visible = true">
+        <svg t="1666271128973" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9310" width="48" height="48"><path d="M393.151172 263.251659c-12.489452 12.489452-12.489452 32.737612 0 45.227064L596.673471 512 393.151172 715.521277c-12.489452 12.489452-12.489452 32.737612 0 45.227064 12.489452 12.489452 32.737612 12.489452 45.227064 0l226.13532-226.135321c12.489452-12.489452 12.489452-32.737612 0-45.227064L438.378236 263.251659c-12.488429-12.489452-32.737612-12.489452-45.227064 0z" p-id="9311" fill="#ffffff"></path></svg>
+      </div>
+    </div>
+    
+    <!-- center -->
+    <div class="moon">
+      <div class="title">明月堂</div>
+      <div class="bottomText">
+        <div>送别亲人，寄托哀思。</div>
+        <div>1、搜索框中输入名字，您将与逝者独处。</div>
+        <div>2、点击“+”，创建房间，新增逝者信息，等待逝者亲友加入房间，进行送别仪式。</div>
+      </div>
+
+      <audio controls loop id="bgmusic" autoplay="autoplay" src="/music.m4a"></audio>
+    </div>
+    
+    <!-- sideleft    -->
+    <div class="sideleft">
+      <side-info></side-info>
+    </div>
+    
+
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SideInfo from './components/SideInfo.vue';
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: { SideInfo },
+  data() {
+    return {
+      input1: '',
+      visible: false,
+    }
   }
+  
+  
 }
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: black;
+  font-family: Microsoft YaHei;
+}
+
+.gap {
+  height: 70px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.gap div {
+  padding: 0 10px;
+}
+
+.icon-search {
+  margin-top: 5px;
+  margin-right: 30px;
+}
+
+.icon-rightarrow {
+  margin-right: auto;
+}
+
+#search {
+  height: 35px;
+  width: 300px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(255,255,255,0.9);
+  font-size: 100%;
+}
+
+.moon {
+  background: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  height: 1000px;
+  width: 1000px;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  padding-top: 15%;
+  margin: 0 auto;
+  box-shadow: 0px 0px 40px rgba(255,255,255,0.9);
+}
+
+.title {
+  font-size: 100px;
+}
+
+.bottomText {
+  padding: 10%;
+  font-size: 30px;
+}
+
+/* sideleft */
+.sideleft {
+  overflow: hidden;
+  position: absolute;
 }
 </style>

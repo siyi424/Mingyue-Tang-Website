@@ -20,7 +20,7 @@
   width: 1000px;
   text-align: center;
   padding-top: 15%;
-  margin: 0 auto;
+  margin: 100px auto;
   box-shadow: 0px 0px 40px rgba(255,255,255,0.9);
 }
 .title {

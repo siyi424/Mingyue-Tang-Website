@@ -6,16 +6,10 @@
         <div>1、搜索框中输入名字，您将与逝者独处。</div>
         <div>2、点击“+”，创建房间，新增逝者信息，等待逝者亲友加入房间，进行送别仪式。</div>
       </div>
-
-      <audio controls loop id="bgmusic" autoplay="autoplay" src="/music.m4a"></audio>
     </div>
-    
-  
-
 </template>
 
 <script>
-
 </script>
 
 <style>
@@ -29,16 +23,13 @@
   margin: 0 auto;
   box-shadow: 0px 0px 40px rgba(255,255,255,0.9);
 }
-
 .title {
   font-size: 100px;
 }
-
 .bottomText {
   padding: 10%;
   font-size: 30px;
 }
-
 /* sideleft */
 .sideleft {
   overflow: hidden;

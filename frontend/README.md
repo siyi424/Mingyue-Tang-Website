@@ -1,4 +1,4 @@
-# myt-front
+# frontend
 
 ## Project setup
 ```

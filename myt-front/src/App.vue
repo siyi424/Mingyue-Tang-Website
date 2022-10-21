@@ -7,43 +7,24 @@
       <div>
         <input id='search' v-model="input1" placeholder="搜索逝者名字">
       </div>
-      <div class="icon-rightarrow" @click="visible = true">
+      <div class="icon-rightarrow">
         <svg t="1666271128973" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9310" width="48" height="48"><path d="M393.151172 263.251659c-12.489452 12.489452-12.489452 32.737612 0 45.227064L596.673471 512 393.151172 715.521277c-12.489452 12.489452-12.489452 32.737612 0 45.227064 12.489452 12.489452 32.737612 12.489452 45.227064 0l226.13532-226.135321c12.489452-12.489452 12.489452-32.737612 0-45.227064L438.378236 263.251659c-12.488429-12.489452-32.737612-12.489452-45.227064 0z" p-id="9311" fill="#ffffff"></path></svg>
       </div>
     </div>
     
-    <!-- center -->
-    <div class="moon">
-      <div class="title">明月堂</div>
-      <div class="bottomText">
-        <div>送别亲人，寄托哀思。</div>
-        <div>1、搜索框中输入名字，您将与逝者独处。</div>
-        <div>2、点击“+”，创建房间，新增逝者信息，等待逝者亲友加入房间，进行送别仪式。</div>
-      </div>
-
-      <audio controls loop id="bgmusic" autoplay="autoplay" src="/music.m4a"></audio>
-    </div>
-    
-    <!-- sideleft    -->
-    <div class="sideleft">
-      <side-info></side-info>
-    </div>
-    
-
+    <router-view></router-view>
+  
 
 </template>
 
 <script>
-import SideInfo from './components/SideInfo.vue';
 
 
 export default {
   name: 'App',
-  components: { SideInfo },
   data() {
     return {
       input1: '',
-      visible: false,
     }
   }
   
@@ -95,29 +76,4 @@ export default {
   font-size: 100%;
 }
 
-.moon {
-  background: rgba(255,255,255,0.8);
-  border-radius: 50%;
-  height: 1000px;
-  width: 1000px;
-  text-align: center;
-  padding-top: 15%;
-  margin: 0 auto;
-  box-shadow: 0px 0px 40px rgba(255,255,255,0.9);
-}
-
-.title {
-  font-size: 100px;
-}
-
-.bottomText {
-  padding: 10%;
-  font-size: 30px;
-}
-
-/* sideleft */
-.sideleft {
-  overflow: hidden;
-  position: absolute;
-}
 </style>

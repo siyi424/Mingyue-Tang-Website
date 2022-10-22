@@ -10,6 +10,8 @@
         v-model="form.date1"
         type="date"
         placeholder="Pick a date"
+        format="YYYY/MM/DD" 
+        value-format="YYYY-MM-DD"
         style="width: 100%"
       />
     </el-form-item>
@@ -17,6 +19,8 @@
       <el-date-picker
         v-model="form.date2"
         type="date"
+        format="YYYY/MM/DD"
+        value-format="YYYY-MM-DD"
         placeholder="Pick a date"
         style="width: 100%"
       />

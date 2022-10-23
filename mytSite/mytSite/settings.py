@@ -127,6 +127,14 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "dist/static"), # your static/ files folder
 ]
 
+#配置媒体资源
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+
+# debug=False时，进入生产环境
+STATIC_ROOT=os.path.join(BASE_DIR,'static')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 

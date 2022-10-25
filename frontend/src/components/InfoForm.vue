@@ -10,7 +10,7 @@
         v-model="form.date1"
         type="date"
         placeholder="Pick a date"
-        format="YYYY/MM/DD" 
+        format="YYYY/MM/DD"
         value-format="YYYY-MM-DD"
         style="width: 100%"
       />
@@ -47,24 +47,40 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
       form: {
-        name: '',
-        date1: '',
-        date2: '',
-        gender: '',
-        desc: '',
-      }
-    }
+        name: "",
+        date1: "",
+        date2: "",
+        gender: "",
+        desc: "",
+      },
+    };
   },
 
   methods: {
-    onsubmit() {
-      this.$router.push({path:'/room'});
-      console.log('submit!');
-    }
-  }
-}
+    onSubmit() {
+      console.log('the form is:', this.form);
+      axios.post("/addInfo/register", {
+          name: this.form.name,
+          date1: this.form.date1,
+          date2: this.form.date2,
+          gender: this.form.gender,
+          desc: this.form.desc,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      console.log("succesfully submit!");
+    },
+  },
+};
 </script>

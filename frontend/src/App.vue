@@ -87,7 +87,7 @@
         loop
         id="bgmusic"
         autoplay="autoplay"
-        src="/music.m4a"
+        src="/media/music.m4a"
       ></audio>
     </div>
   </nav>

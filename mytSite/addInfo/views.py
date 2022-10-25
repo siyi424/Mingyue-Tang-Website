@@ -39,6 +39,7 @@ def searchName(request):
 
         Data = PassedPerson.objects.filter(name=name)
         people = serializers.serialize("json", Data.all())
+        
         return JsonResponse({'errno': 0, 'msg': 'GET reached at backend successfully!'})
     else:
         return JsonResponse({'errno': 2, 'msg': 'wrong GET!'})

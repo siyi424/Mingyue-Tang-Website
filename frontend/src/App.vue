@@ -103,6 +103,7 @@ export default {
   data() {
     return {
       inputName: "",
+      items: undefined,
     }
   },
   methods: {
@@ -114,8 +115,9 @@ export default {
             name: this.inputName,
           },
         })
-        .then(function (response) {
-          console.log(response);
+        .then((response)=>{
+          this.items = response.data.getData;
+          console.log(response.data.getData);
         })
         .catch(function (error) {
           console.log(error);
@@ -124,6 +126,7 @@ export default {
           // 总是会执行
         });
 
+        this.$router.push('/search', this.items);
         console.log('GET succesfully!');
     },
   },

@@ -37,9 +37,10 @@ def searchName(request):
         name = request.GET.get('name')
         print('(backend) the inputName is:', name)
 
-        Data = PassedPerson.objects.filter(name=name)
-        people = serializers.serialize("json", Data.all())
+        Data = PassedPerson.objects.filter(name=name).values()
+        people = list(Data)
+        print('send back:', people)
         
-        return JsonResponse({'errno': 0, 'msg': 'GET reached at backend successfully!'})
+        return JsonResponse({'errno': 0, 'msg': 'GET reached at backend successfully!', 'getData': people})
     else:
         return JsonResponse({'errno': 2, 'msg': 'wrong GET!'})

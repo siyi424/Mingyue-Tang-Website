@@ -20,7 +20,7 @@ const routes = [
     component: () => import('../views/RoomView.vue')
   },
   {
-    path: '/search',
+    path: '/search/:name',
     name: 'search',
     component: () => import('../views/ListView.vue'),
     props: true

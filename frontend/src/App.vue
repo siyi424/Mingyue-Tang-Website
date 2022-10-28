@@ -24,7 +24,7 @@
     </div>
 
     <div>
-      <el-input id="search" v-model="inputName" placeholder="搜索逝者名字" @change="searchName"/>
+      <el-input id="search" v-model="inputName" placeholder="搜索逝者名字" @change="pushName"/>
     </div>
     <!-- nav-left  -->
     <div class="nav-left">
@@ -97,38 +97,18 @@
 </template>
 
 <script>
-import axios from "axios";
+
 
 export default {
   data() {
     return {
       inputName: "",
-      items: undefined,
     }
   },
   methods: {
-    searchName() {
-      console.log("inputName: ", this.inputName);
-      axios
-        .get("/addInfo/searchName", {
-          params: {
-            name: this.inputName,
-          },
-        })
-        .then((response)=>{
-          this.items = response.data.getData;
-          console.log(response.data.getData);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-        .then(function () {
-          // 总是会执行
-        });
-
-        this.$router.push('/search', this.items);
-        console.log('GET succesfully!');
-    },
+    pushName() {
+      this.$router.push({name:'search', params: {name: this.inputName}});
+    }
   },
 };
 </script>

@@ -15,16 +15,17 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/InfoView.vue')
   },
   {
-    path: '/room',
-    name: 'room',
-    component: () => import('../views/RoomView.vue')
-  },
-  {
     path: '/search/:name',
     name: 'search',
-    component: () => import('../views/ListView.vue'),
-    props: true
-  }
+    component: () => import('../views/search/ListView.vue'),
+    props: true,
+    children: [{
+      path: 'singleChat/:person',
+      name: 'singleChat',
+      component: () => import('../views/search/SingleRoom.vue'),
+      props: true
+    }]
+  },
 ]
 
 const router = createRouter({
